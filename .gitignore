@@ -1,0 +1,5 @@
+.idea
+/roombelt.env
+node_modules
+/build
+*.sqlite

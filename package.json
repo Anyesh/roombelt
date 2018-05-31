@@ -1,0 +1,77 @@
+{
+  "name": "roombelt",
+  "version": "0.2.1",
+  "description": "🏢 Open source and free meeting room display system - for Cloud and On-Premises",
+  "scripts": {
+    "start": "node backend/index.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cross-env PORT=3001 nodemon --watch backend backend/index.js",
+    "dev:frontend": "react-scripts start",
+    "build": "react-scripts build && npm run build-sw",
+    "build-sw": "sw-precache --root=build --config sw-config.js",
+    "heroku-postbuild": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "bin": {
+    "roombelt": "bin/cli.js"
+  },
+  "homepage": "https://roombelt.com",
+  "bugs": {
+    "url": "https://github.com/ziolko/roombelt-app"
+  },
+  "keywords": [
+    "meeting",
+    "room",
+    "manager",
+    "display",
+    "cloud",
+    "saas",
+    "server",
+    "on-premises"
+  ],
+  "author": "Mateusz Zieliński <mateusz.mzielinski@gmail.com> (https://github.com/ziolko)",
+  "license": "ISC",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001"
+    }
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.4.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-bearer-token": "^2.1.1",
+    "express-promise-router": "^3.0.2",
+    "googleapis": "^27.0.0",
+    "helmet": "^3.12.1",
+    "pg": "^7.4.3",
+    "sequelize": "^4.37.10",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.4",
+    "js-cookie": "^2.2.0",
+    "moment": "^2.22.0",
+    "nodemon": "^1.17.3",
+    "prettier": "1.11.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-icons": "^2.2.7",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "react-select": "^1.2.1",
+    "react-spring": "^5.1.2",
+    "redux": "^3.7.2",
+    "redux-play": "^0.1.7",
+    "reselect": "^3.0.1",
+    "screenfull": "^3.3.2",
+    "styled-components": "^3.2.5",
+    "sw-precache": "^5.2.1"
+  }
+}

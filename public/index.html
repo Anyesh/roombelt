@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+    <title>Roombelt</title>
+
+    <style>
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: #f5f7fb;
+        }
+
+        #loader-logo {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+        }
+
+        #loader {
+            display: block;
+            position: absolute;
+            left: calc(50% - 100px);
+            top: calc(50% - 100px);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #467fcf;
+
+            -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+            z-index: 1001;
+        }
+
+        #loader:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #cd201f;
+
+            -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+
+        #loader:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f1c40f;
+
+            -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+
+        @-webkit-keyframes spin {
+            0%   {
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        @keyframes spin {
+            0%   {
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+
+        .loaded #loader-wrapper {
+            visibility: hidden;
+
+            opacity: 0;
+
+            -webkit-transition: all 0.3s 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+            transition: all 0.3s 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+        }
+    </style>
+</head>
+<body>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<div id="loader-wrapper">
+    <svg id="loader-logo" viewBox="0 0 512 512">
+        <path fill="#467fcf" d="M132 501c-60-12-98-44-116-97-8-25-8-18-9-126a875 875 0 0 1 6-164l1-3h484l2 7c3 10 4 18 5 26v117l-1 111-3 11c-7 32-17 53-33 71a142 142 0 0 1-83 46c-13 3-39 4-151 4h-89l-13-3zm111-113v-91c0-101-1-90 8-107 8-16 14-24 25-31 12-8 26-11 48-10h12l1-8 1-14c0-5-1-5-3-6-10-4-26-4-38-1-8 3-21 8-27 12l-23 23-4 6v-18l-1-20h-30v43l2 133v90h15l14-1z"/>
+        <path fill="#467fcf" d="M139 502l-13-3c-58-14-93-45-111-99l-5-18c-1-9-3-99-2-174v-72l3-13 3-12h483l1 3 4 12 2 10v118c0 131 0 119-7 143a139 139 0 0 1-120 104l-121 2-117-1zm104-188l1-93 1-17 4-10c11-22 20-32 36-39 9-4 16-6 35-6h16l1-4 1-13c0-10 0-10-3-11-7-4-26-4-38-1l-17 7c-11 5-12 6-21 15l-13 14-3 4v-19l-1-18-6-1-15 1h-9v82l2 132v52h29v-75zM17 103A146 146 0 0 1 128 9l10-3h116c114 0 115 0 125 2 15 3 33 9 47 16 24 13 42 29 56 53 5 8 13 25 15 31v3H14z"/>
+    </svg>
+    <div id="loader"></div>
+</div>
+<div id="root"></div>
+</body>
+</html>
