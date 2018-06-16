@@ -1,6 +1,6 @@
 {
   "name": "roombelt",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "🏢 Open source and free meeting room display system - for Cloud and On-Premises",
   "scripts": {
     "start": "node backend/index.js",
